@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office 365 Productivity Quiz - Family Court</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .quiz-section {
+            padding: 30px;
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .question-number {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .option.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .option.correct {
+            background: #48bb78;
+            color: white;
+            border-color: #48bb78;
+        }
+
+        .option.wrong {
+            background: #f56565;
+            color: white;
+            border-color: #f56565;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            margin: 20px 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .results {
+            display: none;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .score-label {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .results h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .results-detail {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .feedback {
+            font-size: 18px;
+            color: #4a5568;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 0;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .question-text {
+                font-size: 18px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Office 365 Productivity Quiz</h1>
+            <p>Family Court Training - December 29, 2025</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div class="quiz-section" id="quizSection">
+            <!-- Questions will be injected here -->
+        </div>
+
+        <div class="results" id="results">
+            <h2>Quiz Complete! 🎉</h2>
+            <div class="score-circle">
+                <div id="scoreDisplay">0%</div>
+                <div class="score-label">Score</div>
+            </div>
+            <div class="results-detail">
+                <p><strong>Correct Answers:</strong> <span id="correctCount">0</span> / <span id="totalCount">0</span></p>
+                <p id="timeTaken"></p>
+            </div>
+            <div class="feedback" id="feedback"></div>
+            <button class="btn btn-primary" onclick="restartQuiz()">Retake Quiz</button>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Family Court ICT Department | Republic of Maldives</p>
+            <p>📞 +960 3340507 | 📧 hussain.shareef@familycourt.gov.mv</p>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the correct file naming convention for 2026 court documents?",
+                options: [
+                    "finaldocument.docx",
+                    "document1_new_final.docx",
+                    "2026-01-15_FC-2026-001_Motion_HSR.docx",
+                    "motion_for_hearing.docx"
+                ],
+                correct: 2,
+                explanation: "The standard format is: YYYY-MM-DD_CaseType-ID_Document_Initials"
+            },
+            {
+                question: "Where should final court forms be saved?",
+                options: [
+                    "Desktop",
+                    "OneDrive",
+                    "SharePoint",
+                    "Email attachments"
+                ],
+                correct: 2,
+                explanation: "Final documents should be saved to SharePoint for team access, while drafts go in OneDrive."
+            },
+            {
+                question: "What is the keyboard shortcut to show formatting marks in Word?",
+                options: [
+                    "Ctrl+F",
+                    "Ctrl+Shift+8",
+                    "Windows+L",
+                    "Alt+F4"
+                ],
+                correct: 1,
+                explanation: "Ctrl+Shift+8 toggles the paragraph mark (¶) button to show hidden formatting."
+            },
+            {
+                question: "Which formula should replace VLOOKUP for case management in 2026?",
+                options: [
+                    "INDEX-MATCH",
+                    "SUMIF",
+                    "XLOOKUP",
+                    "COUNTIF"
+                ],
+                correct: 2,
+                explanation: "XLOOKUP is more powerful and flexible than VLOOKUP, with better error handling and bi-directional lookup."
+            },
+            {
+                question: "What does the case type code 'FC' stand for?",
+                options: [
+                    "File Case",
+                    "Family Court",
+                    "Family Case",
+                    "Final Copy"
+                ],
+                correct: 2,
+                explanation: "FC = Family Case, used in the file naming convention."
+            },
+            {
+                question: "When should you use OneDrive instead of SharePoint?",
+                options: [
+                    "For finalized team documents",
+                    "For approved court templates",
+                    "For draft and work-in-progress documents",
+                    "For archived cases"
+                ],
+                correct: 2,
+                explanation: "OneDrive is for personal drafts and work-in-progress, while SharePoint is for final shared documents."
+            },
+            {
+                question: "What is a key advantage of XLOOKUP over VLOOKUP?",
+                options: [
+                    "It can only look to the right",
+                    "It requires exact column numbers",
+                    "It can look in any direction (left, right, up, down)",
+                    "It's slower with large datasets"
+                ],
+                correct: 2,
+                explanation: "XLOOKUP can search in any direction and doesn't break when columns are rearranged."
+            },
+            {
+                question: "When is the Tech Clinic support available?",
+                options: [
+                    "Monday 9:00-11:00",
+                    "Every Tuesday 10:00-12:00",
+                    "Friday 2:00-4:00",
+                    "Daily 8:00-5:00"
+                ],
+                correct: 1,
+                explanation: "Tech Clinic is held every Tuesday from 10:00 AM to 12:00 PM for staff support."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answers = [];
+        let startTime = Date.now();
+
+        function initQuiz() {
+            renderQuestion();
+            updateProgress();
+        }
+
+        function renderQuestion() {
+            const quizSection = document.getElementById('quizSection');
+            const question = quizData[currentQuestion];
+            
+            quizSection.innerHTML = `
+                <div class="question-card active">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" onclick="selectOption(${index})" data-index="${index}">
+                                ${String.fromCharCode(65 + index)}. ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="navigation">
+                        <button class="btn btn-secondary" onclick="previousQuestion()" ${currentQuestion === 0 ? 'disabled' : ''}>
+                            ← Previous
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next →'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Restore previous answer if exists
+            if (answers[currentQuestion] !== undefined) {
+                selectOption(answers[currentQuestion], true);
+            }
+        }
+
+        function selectOption(index, isRestored = false) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[index].classList.add('selected');
+            answers[currentQuestion] = index;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+                updateProgress();
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showResults() {
+            // Calculate score
+            score = 0;
+            answers.forEach((answer, index) => {
+                if (answer === quizData[index].correct) {
+                    score++;
+                }
+            });
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            const timeTaken = Math.round((Date.now() - startTime) / 1000);
+            
+            // Get feedback based on score
+            let feedback = '';
+            if (percentage === 100) {
+                feedback = "🌟 Perfect Score! You've mastered Office 365 productivity concepts. Excellent work!";
+            } else if (percentage >= 75) {
+                feedback = "👏 Great job! You have a strong understanding of the material. Keep up the good work!";
+            } else if (percentage >= 50) {
+                feedback = "📚 Good effort! Review the training materials to strengthen your knowledge.";
+            } else {
+                feedback = "💪 Keep learning! Please review the session content and retake the quiz.";
+            }
+
+            // Display results
+            document.getElementById('quizSection').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+            document.getElementById('scoreDisplay').textContent = percentage + '%';
+            document.getElementById('correctCount').textContent = score;
+            document.getElementById('totalCount').textContent = quizData.length;
+            document.getElementById('timeTaken').innerHTML = `<strong>Time Taken:</strong> ${Math.floor(timeTaken / 60)}m ${timeTaken % 60}s`;
+            document.getElementById('feedback').textContent = feedback;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answers = [];
+            startTime = Date.now();
+            document.getElementById('results').classList.remove('active');
+            document.getElementById('quizSection').style.display = 'block';
+            initQuiz();
+        }
+
+        // Initialize quiz on page load
+        initQuiz();
+    </script>
+</body>
+</html>
