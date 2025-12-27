@@ -1,0 +1,46 @@
+# Editor and OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+*.tmp
+*.temp
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+
+# Log files
+*.log
+
+# Personal notes (not for sharing)
+*_personal.md
+*_draft.md
+
+# Large media files (use Git LFS if needed)
+*.psd
+*.ai
+*.mov
+*.mp4
+*.avi
+
+# Sensitive information
+credentials.txt
+passwords.txt
+*.key
+*.pem
