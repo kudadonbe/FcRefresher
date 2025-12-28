@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office 365 Productivity Boost 2026 - Family Court Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            max-height: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2d3748;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            animation: slideIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide.lead {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .slide.lead.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .slide.lead h1 {
+            color: white;
+            font-size: 56px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .slide.lead h2 {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        h3 {
+            font-size: 28px;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .slide.lead h3 {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        h4 {
+            font-size: 24px;
+            color: #4a5568;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .slide.lead p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 22px;
+        }
+
+        ul, ol {
+            margin-left: 40px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        th {
+            background: #764ba2;
+            color: white;
+            font-weight: 600;
+        }
+
+        code, pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            display: block;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        code {
+            display: inline;
+            padding: 3px 8px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .controls button {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #764ba2;
+            color: #764ba2;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .controls button:hover {
+            background: #764ba2;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        .controls button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #764ba2;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .quiz-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #48bb78;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+            z-index: 1000;
+        }
+
+        .quiz-button:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .highlight {
+            background: #fef5e7;
+            padding: 20px;
+            border-left: 5px solid #764ba2;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .slide.lead h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p, ul, ol {
+                font-size: 16px;
+            }
+
+            .controls button {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+
+            .slide-counter, .quiz-button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+
+        @media print {
+            .controls, .slide-counter, .quiz-button {
+                display: none;
+            }
+
+            .slide {
+                display: block !important;
+                page-break-after: always;
+                box-shadow: none;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="quiz.html" class="quiz-button" target="_blank">Take Quiz</a>
+
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+    </div>
+
+    <div class="slide-container">
+        <!-- Slide 1 -->
+        <div class="slide lead active">
+            <h1>OFFICE 365 PRODUCTIVITY BOOST 2026</h1>
+            <h3>Smart Digital Tools for Efficient Court Work</h3>
+            <h4>Hybrid Training Session</h4>
+            <p><strong>29 December 2025</strong></p>
+            <p>Kaiveni Hall, Henveyru & Microsoft Teams</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide lead">
+            <h2>Today's Presenter</h2>
+            <h3>Hussain Shareef</h3>
+            <p>Computer Technician | ICT Department</p>
+            <p>Phone: +960 3340507</p>
+            <p>Email: hussain.shareef@familycourt.gov.mv</p>
+            <p>Website: www.familycourt.gov.mv</p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide lead">
+            <h2>Hybrid Session Setup</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; margin-top: 30px;">
+                <div>
+                    <h3>In-Person:</h3>
+                    <p>Location: Kaiveni Hall, Henveyru</p>
+                    <p>Microphone & Projector</p>
+                    <p>Printed Materials</p>
+                </div>
+                <div>
+                    <h3>Remote:</h3>
+                    <p>Microsoft Teams Meeting</p>
+                    <p>Teams Link Here</p>
+                    <p>Meeting ID: [ID Here]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h1>Session Objectives</h1>
+            <p>By the end of today, you will:</p>
+            <ul>
+                <li>Implement proper file naming conventions</li>
+                <li>Choose correct storage (OneDrive vs SharePoint)</li>
+                <li>Apply XLOOKUP formulas in Excel</li>
+                <li>Master Word document cleanup</li>
+                <li>Navigate hybrid collaboration tools</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <h1>Session Agenda</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>For Remote Participants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>8:30</td><td>Welcome & Tech Check</td><td>Test audio/video</td></tr>
+                    <tr><td>8:35</td><td>File Naming Standards</td><td>Follow shared screen</td></tr>
+                    <tr><td>8:43</td><td>Storage Strategy</td><td>Interactive poll</td></tr>
+                    <tr><td>8:50</td><td>Excel: XLOOKUP</td><td>Download practice file</td></tr>
+                    <tr><td>8:58</td><td>Word Cleanup</td><td>Live demo</td></tr>
+                    <tr><td>9:05</td><td>Quick Quiz</td><td>Teams Forms</td></tr>
+                    <tr><td>9:10</td><td>Activities</td><td>Breakout rooms</td></tr>
+                    <tr><td>9:35</td><td>Q&A</td><td>Use chat feature</td></tr>
+                    <tr><td>9:40</td><td>Closing</td><td>Links in chat</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide lead">
+            <h1>The File Naming Crisis</h1>
+            <h2>Can You Find This File?</h2>
+            <pre style="background: rgba(255,255,255,0.2); margin-top: 30px;">Hassan_v_Mohamed_final_FINAL_revised_2_actuallyfinal.docx</pre>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide">
+            <h1>Common Problems</h1>
+            <ul>
+                <li>260-character Windows path limit</li>
+                <li>Difficult to back up/recover</li>
+                <li>Confusing version control</li>
+                <li>Hard to search efficiently</li>
+                <li>Archive nightmares</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide lead">
+            <h2>Raise Your Hand If...</h2>
+            <ul style="text-align: left; font-size: 24px;">
+                <li>Spent >5 minutes searching for a file this week</li>
+                <li>Received "file name too long" error</li>
+                <li>Shared wrong version accidentally</li>
+                <li>Created duplicate files unknowingly</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide">
+            <h1>Family Court Naming Standard</h1>
+            <h3 style="color: #667eea;">Effective 1 January 2026</h3>
+            <pre>YYYY-MM-DD_CaseType-ID_Document_Initials</pre>
+            <h3>Examples:</h3>
+            <ul style="font-size: 22px;">
+                <li>2025-12-29_FC-2025-0456_Motion_HSR.docx</li>
+                <li>2025-11-15_JD-2025-0789_Order_JAS.docx</li>
+                <li>2025-10-20_CA-2025-1234_Report_MAA.docx</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide">
+            <h1>Benefits of Standard Naming</h1>
+            <ul>
+                <li>Chronological sorting automatically</li>
+                <li>Easy identification at a glance</li>
+                <li>Consistent across entire court</li>
+                <li>Future-proof for archiving</li>
+                <li>Search-friendly for all staff</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide lead">
+            <h1>Case Type Codes</h1>
+            <div style="text-align: left; font-size: 24px; margin-top: 30px;">
+                <p><strong>FC</strong> = Family Case</p>
+                <p><strong>JD</strong> = Juvenile Division</p>
+                <p><strong>CA</strong> = Child Affairs</p>
+                <p><strong>AP</strong> = Appeal Case</p>
+                <p><strong>MO</strong> = Maintenance Order</p>
+            </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide">
+            <h1>Metadata: The Hidden Power</h1>
+            <h3>How to Add Metadata:</h3>
+            <ol>
+                <li>Right-click file → Properties</li>
+                <li>Click Details tab</li>
+                <li>Add/Edit fields:
+                    <ul>
+                        <li>Authors</li>
+                        <li>Tags (keywords)</li>
+                        <li>Comments</li>
+                        <li>Subject</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="slide">
+            <h1>Court-Specific Metadata Tags</h1>
+            <ul>
+                <li>Case Number</li>
+                <li>Judge Name</li>
+                <li>Hearing Date</li>
+                <li>Urgency Level</li>
+                <li>Case Category</li>
+                <li>Parties Involved</li>
+            </ul>
+        </div>
+
+        <!-- Slide 14 -->
+        <div class="slide lead">
+            <h1>Search Magic</h1>
+            <h2>Find files by CONTENT, not just filename!</h2>
+            <div style="text-align: left; margin-top: 30px; font-size: 22px;">
+                <p>Metadata enables powerful search:</p>
+                <ul>
+                    <li>"Show me all urgent Family Cases"</li>
+                    <li>"Find Judge Ibrahim's December orders"</li>
+                    <li>"Locate maintenance orders from 2025"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 15 -->
+        <div class="slide">
+            <h1>Storage Strategy</h1>
+            <h2>Where Should This File Go?</h2>
+        </div>
+
+        <!-- Slide 16 -->
+        <div class="slide">
+            <h1>OneDrive</h1>
+            <h3>Your Personal Work Locker</h3>
+            <ul>
+                <li>Draft documents</li>
+                <li>Personal notes</li>
+                <li>Work-in-progress</li>
+                <li>Only YOU control access</li>
+                <li>Auto-saves every 2 seconds</li>
+                <li>Accessible anywhere</li>
+            </ul>
+        </div>
+
+        <!-- Slide 17 -->
+        <div class="slide">
+            <h1>SharePoint</h1>
+            <h3>Team Shared Library</h3>
+            <ul>
+                <li>Court templates</li>
+                <li>Finalized forms</li>
+                <li>Team documents</li>
+                <li>Approved procedures</li>
+                <li>Everyone in team can access</li>
+                <li>Version history for all</li>
+            </ul>
+        </div>
+
+        <!-- Slide 18 -->
+        <div class="slide lead">
+            <h1>Golden Rule</h1>
+            <h2 style="font-size: 48px; margin-top: 40px;">Drafting → OneDrive</h2>
+            <h2 style="font-size: 48px;">Final/Team → SharePoint</h2>
+        </div>
+
+        <!-- Slide 19 -->
+        <div class="slide">
+            <h1>Quick Demo: Moving Files</h1>
+            <ol>
+                <li>Find file in OneDrive</li>
+                <li>Drag & drop to SharePoint</li>
+                <li>Verify team access</li>
+                <li>Delete from OneDrive (optional)</li>
+            </ol>
+        </div>
+
+        <!-- Slide 20 -->
+        <div class="slide lead">
+            <h1>Excel Superpower: XLOOKUP</h1>
+            <h2>Your New Best Friend for Case Management</h2>
+        </div>
+
+        <!-- Slide 21 -->
+        <div class="slide">
+            <h1>Perfect For:</h1>
+            <ul>
+                <li>Year-end case statistics</li>
+                <li>Pulling case details</li>
+                <li>Generating reports</li>
+                <li>Finding related documents</li>
+                <li>Data validation and cleanup</li>
+            </ul>
+        </div>
+
+        <!-- Slide 22 -->
+        <div class="slide">
+            <h1>Simple Formula</h1>
+            <pre>=XLOOKUP(What, Where, Return, "Not Found")</pre>
+            <h3>Court Example:</h3>
+            <pre>=XLOOKUP(A2, '2025_Cases'!A:A, '2025_Cases'!C:C, "Check Archive")</pre>
+        </div>
+
+        <!-- Slide 23 -->
+        <div class="slide">
+            <h1>Live Demo Scenario</h1>
+            <p><strong>Task:</strong> Find case officer by Case ID</p>
+            <p><strong>Data:</strong></p>
+            <ul>
+                <li>Column A: Case Numbers (FC-2025-001, FC-2025-002...)</li>
+                <li>Column B: Case Officers (Aminath, Fathimath, Ibrahim, Mohamed, Aishath...)</li>
+            </ul>
+            <p><strong>Formula:</strong></p>
+            <pre>=XLOOKUP("FC-2025-0456", A:A, B:B, "Officer Not Found")</pre>
+        </div>
+
+        <!-- Slide 24 -->
+        <div class="slide lead">
+            <h1>XLOOKUP vs VLOOKUP</h1>
+            <h2>Why XLOOKUP Wins for Court Work</h2>
+        </div>
+
+        <!-- Slide 25 -->
+        <div class="slide">
+            <h1>XLOOKUP vs VLOOKUP</h1>
+            <table style="font-size: 16px;">
+                <thead>
+                    <tr>
+                        <th>VLOOKUP Limitations</th>
+                        <th>XLOOKUP Advantages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Can only look right</td><td>Looks left/right/up/down</td></tr>
+                    <tr><td>Breaks if columns change</td><td>Handles column changes</td></tr>
+                    <tr><td>Requires exact column count</td><td>Simpler syntax</td></tr>
+                    <tr><td>Slower with large data</td><td>Faster processing</td></tr>
+                    <tr><td>No built-in error handling</td><td>Built-in "if not found"</td></tr>
+                    <tr><td>Hard to maintain</td><td>Easy to update</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 26 -->
+        <div class="slide lead">
+            <h1>Your 2026 Resolution</h1>
+            <h2 style="font-size: 48px; margin-top: 40px;">Replace ALL VLOOKUPs with XLOOKUP!</h2>
+        </div>
+
+        <!-- Slide 27 -->
+        <div class="slide">
+            <h1>Word Document Cleanup</h1>
+            <h2>Professional Documents in 60 Seconds</h2>
+        </div>
+
+        <!-- Slide 28 -->
+        <div class="slide">
+            <h1>The Magic '¶' Button</h1>
+            <h3>Keyboard Shortcut:</h3>
+            <pre>Ctrl + Shift + 8</pre>
+            <h3>Or Click:</h3>
+            <p>Home tab → Paragraph group → ¶</p>
+        </div>
+
+        <!-- Slide 29 -->
+        <div class="slide">
+            <h1>What It Reveals:</h1>
+            <ul>
+                <li>Extra spaces (dots between words)</li>
+                <li>Tab characters (→ arrows)</li>
+                <li>Paragraph marks (¶ symbols)</li>
+                <li>Hidden formatting</li>
+                <li>Manual line breaks</li>
+            </ul>
+        </div>
+
+        <!-- Slide 30 -->
+        <div class="slide">
+            <h1>Common Formatting Issues</h1>
+            <ul>
+                <li>Inconsistent spacing</li>
+                <li>Manual numbering (1., 2., 3.)</li>
+                <li>Mixed fonts and sizes</li>
+                <li>Poor alignment</li>
+                <li>Missing styles</li>
+                <li>Random bold/italic</li>
+            </ul>
+        </div>
+
+        <!-- Slide 31 -->
+        <div class="slide">
+            <h1>60-Second Cleanup Process</h1>
+            <ol>
+                <li>Show formatting (Ctrl+Shift+8)</li>
+                <li>Remove extra spaces</li>
+                <li>Apply "Court Style" template</li>
+                <li>Update headers/footers</li>
+                <li>Add metadata</li>
+                <li>Save as new 2026 template</li>
+            </ol>
+        </div>
+
+        <!-- Slide 32 -->
+        <div class="slide lead">
+            <h1>Interactive Quiz Time!</h1>
+            <h2>Test Your Knowledge</h2>
+            <p style="margin-top: 40px;"><a href="quiz.html" target="_blank" style="background: white; color: #764ba2; padding: 20px 40px; border-radius: 10px; text-decoration: none; font-size: 24px; font-weight: 600; display: inline-block;">Take the Quiz</a></p>
+        </div>
+
+        <!-- Slide 33 -->
+        <div class="slide">
+            <h1>Question 1</h1>
+            <p><strong>Best filename for 2026 court documents?</strong></p>
+            <ul style="list-style-type: upper-alpha;">
+                <li>finaldocument.docx</li>
+                <li>document1_new_final.docx</li>
+                <li>2026-01-15_FC2026-001_Motion_HSR.docx</li>
+                <li>motion_for_hearing.docx</li>
+            </ul>
+        </div>
+
+        <!-- Slide 34 -->
+        <div class="slide">
+            <h1>Question 2</h1>
+            <p><strong>Where should final court forms be saved?</strong></p>
+            <ul style="list-style-type: upper-alpha;">
+                <li>Desktop</li>
+                <li>OneDrive</li>
+                <li>SharePoint</li>
+                <li>Email attachments</li>
+            </ul>
+        </div>
+
+        <!-- Slide 35 -->
+        <div class="slide">
+            <h1>Question 3</h1>
+            <p><strong>Quick key to show Word formatting marks?</strong></p>
+            <ul style="list-style-type: upper-alpha;">
+                <li>Ctrl+F</li>
+                <li>Ctrl+Shift+8</li>
+                <li>Windows+L</li>
+                <li>Alt+F4</li>
+            </ul>
+        </div>
+
+        <!-- Slide 36 -->
+        <div class="slide">
+            <h1>Answers:</h1>
+            <ol>
+                <li><strong>C</strong> - 2026-01-15_FC2026-001_Motion_HSR.docx</li>
+                <li><strong>C</strong> - SharePoint</li>
+                <li><strong>B</strong> - Ctrl+Shift+8</li>
+            </ol>
+        </div>
+
+        <!-- Slide 37 -->
+        <div class="slide lead">
+            <h1>Activity Time!</h1>
+            <h2>Hands-On Practice Session</h2>
+        </div>
+
+        <!-- Slide 38 -->
+        <div class="slide">
+            <h1>Activity 1: File Naming Challenge</h1>
+            <h3>5 minutes</h3>
+            <p><strong>Task:</strong> Rename 5 messy files using court standard</p>
+            <p><strong>Format:</strong> YYYY-MM-DD_CaseType-ID_Document_Initials</p>
+            <p><strong>Prize:</strong> Premium USB drive for fastest correct solution</p>
+        </div>
+
+        <!-- Slide 39 -->
+        <div class="slide">
+            <h1>Activity 2: Storage Sorting Game</h1>
+            <h3>7 minutes</h3>
+            <p><strong>Setup:</strong></p>
+            <ul>
+                <li>Blue basket = OneDrive</li>
+                <li>Purple basket = SharePoint</li>
+                <li>10 file scenario cards</li>
+            </ul>
+            <p><strong>Task:</strong> Decide where each file should go</p>
+            <p><strong>Prize:</strong> Wireless mouse</p>
+        </div>
+
+        <!-- Slide 40 -->
+        <div class="slide">
+            <h1>Activity 3: Document Cleanup Race</h1>
+            <h3>3 minutes</h3>
+            <p><strong>Task:</strong> Fix formatting in a messy document</p>
+            <p><strong>Requirements:</strong></p>
+            <ol>
+                <li>Show formatting marks</li>
+                <li>Remove extra spaces</li>
+                <li>Apply Court Style</li>
+                <li>Save with correct filename</li>
+            </ol>
+            <p><strong>Prize:</strong> Ergonomic keyboard</p>
+        </div>
+
+        <!-- Slide 41 -->
+        <div class="slide">
+            <h1>Activity 4: Excel Formula Builder</h1>
+            <h3>8 minutes</h3>
+            <p><strong>Task:</strong> Create XLOOKUP formula for case lookup</p>
+            <p><strong>Formula:</strong></p>
+            <pre>=XLOOKUP(lookup_value, lookup_array, return_array, "not_found")</pre>
+            <p><strong>Prize:</strong> Excel reference book</p>
+        </div>
+
+        <!-- Slide 42 -->
+        <div class="slide">
+            <h1>For Remote Participants:</h1>
+            <h2>Virtual Activities via Teams</h2>
+            <ol>
+                <li>Breakout rooms for each activity</li>
+                <li>Shared screen for demonstrations</li>
+                <li>Chat support from facilitator</li>
+                <li>Digital prizes for winners</li>
+            </ol>
+        </div>
+
+        <!-- Slide 43 -->
+        <div class="slide lead">
+            <h1>2026 Support Plan</h1>
+            <h2>Continuing Your Learning Journey</h2>
+        </div>
+
+        <!-- Slide 44 -->
+        <div class="slide">
+            <h1>Regular Support Schedule</h1>
+            <ul>
+                <li><strong>Tech Clinic:</strong> Every Tuesday, 10:00-12:00</li>
+                <li><strong>Email Support:</strong> Response within 24 hours</li>
+                <li><strong>Urgent Issues:</strong> Call x5050 or +960 3340507</li>
+                <li><strong>Teams Chat:</strong> Available during work hours</li>
+            </ul>
+        </div>
+
+        <!-- Slide 45 -->
+        <div class="slide">
+            <h1>Available Resources</h1>
+            <ul>
+                <li><strong>Quick Guides:</strong> SharePoint/Training/</li>
+                <li><strong>Video Tutorials:</strong> Court Intranet</li>
+                <li><strong>Templates:</strong> SharePoint/Templates/</li>
+                <li><strong>Reference Cards:</strong> ICT Department</li>
+            </ul>
+        </div>
+
+        <!-- Slide 46 -->
+        <div class="slide">
+            <h1>Upcoming January Sessions</h1>
+            <ol>
+                <li>Automating Court Reports with Power Tools</li>
+                <li>Teams Collaboration & Meetings Mastery</li>
+                <li>Data Security & Privacy Basics</li>
+                <li>Advanced Excel for Case Management</li>
+            </ol>
+        </div>
+
+        <!-- Slide 47 -->
+        <div class="slide lead">
+            <h1>Q&A Session</h1>
+            <h2>Your Questions, Our Answers</h2>
+        </div>
+
+        <!-- Slide 48 -->
+        <div class="slide">
+            <h1>How to Ask Questions:</h1>
+            <p><strong>In-Person:</strong> Raise your hand</p>
+            <p><strong>Remote:</strong></p>
+            <ul>
+                <li>Use Raise Hand feature</li>
+                <li>Type in Chat</li>
+                <li>Unmute and speak</li>
+            </ul>
+            <p><strong>After Session:</strong> Email your questions</p>
+        </div>
+
+        <!-- Slide 49 -->
+        <div class="slide">
+            <h1>Contact Information</h1>
+            <p><strong>Hussain Shareef</strong></p>
+            <p>Computer Technician | ICT Department</p>
+            <ul style="list-style: none; margin-left: 0;">
+                <li><strong>Phone:</strong> +960 3340507</li>
+                <li><strong>Email:</strong> hussain.shareef@familycourt.gov.mv</li>
+                <li><strong>Office:</strong> Justice Building, 20212, Malé</li>
+                <li><strong>Website:</strong> www.familycourt.gov.mv</li>
+            </ul>
+        </div>
+
+        <!-- Slide 50 -->
+        <div class="slide">
+            <h1>Session Resources</h1>
+            <ul>
+                <li><strong>Teams Recording:</strong> Available in Chat</li>
+                <li><strong>Handouts:</strong> SharePoint/Training/29Dec2025/</li>
+                <li><strong>Practice Files:</strong> Download from Chat</li>
+                <li><strong>Feedback Form:</strong> Link in Chat</li>
+            </ul>
+        </div>
+
+        <!-- Slide 51 -->
+        <div class="slide lead">
+            <h1>Thank You!</h1>
+            <h2>Let's Make 2026 Our Most Productive Year Yet!</h2>
+            <p style="margin-top: 40px; font-size: 24px;"><strong>Remember:</strong> Start implementing these tips tomorrow!</p>
+        </div>
+
+        <!-- Slide 52 -->
+        <div class="slide">
+            <h1>Quick Reference Summary</h1>
+            <ol>
+                <li><strong>File Names:</strong> YYYY-MM-DD_CaseType-ID_Doc_Initials</li>
+                <li><strong>Storage:</strong> Drafts→OneDrive, Final→SharePoint</li>
+                <li><strong>Excel:</strong> Use XLOOKUP, not VLOOKUP</li>
+                <li><strong>Word:</strong> Ctrl+Shift+8 for formatting cleanup</li>
+                <li><strong>Support:</strong> Tuesdays 10-12, email, or call</li>
+            </ol>
+        </div>
+
+        <!-- Slide 53 -->
+        <div class="slide">
+            <h1>Feedback Matters!</h1>
+            <h2>Please Complete Our Short Survey:</h2>
+            <ul style="list-style: none; margin-left: 0; margin-top: 30px;">
+                <li>Link in Teams Chat</li>
+                <li>QR Code on Screen</li>
+                <li>Email follow-up</li>
+            </ul>
+            <p style="margin-top: 30px;">Your feedback shapes future training sessions!</p>
+        </div>
+
+        <!-- Slide 54 -->
+        <div class="slide lead">
+            <h1>One Last Thing...</h1>
+            <h2>Your Digital Resolution for 2026:</h2>
+            <p style="margin-top: 40px; font-size: 28px;">"I will implement at least ONE thing I learned today, starting tomorrow."</p>
+            <p style="margin-top: 30px; font-size: 24px;">Which one will it be?</p>
+        </div>
+
+        <!-- Slide 55 -->
+        <div class="slide lead">
+            <h1>Safe Travels & Happy New Year!</h1>
+            <h2>Wishing You a Productive 2026!</h2>
+            <p style="margin-top: 40px;"><strong>Next Session:</strong> January 2026</p>
+            <p><strong>Topic:</strong> Automating Court Reports</p>
+        </div>
+
+        <!-- Slide 56 -->
+        <div class="slide">
+            <h1>Credits & Acknowledgements</h1>
+            <ul style="list-style: none; margin-left: 0;">
+                <li><strong>Presenter:</strong> Hussain Shareef</li>
+                <li><strong>Venue:</strong> Kaiveni Hall, Henveyru</li>
+                <li><strong>IT Support:</strong> Family Court ICT Department</li>
+                <li><strong>Materials:</strong> Family Court Training Resources</li>
+            </ul>
+            <p style="margin-top: 40px; text-align: center;">© 2025 Family Court, Republic of Maldives</p>
+        </div>
+
+        <!-- Slide 57 -->
+        <div class="slide lead">
+            <h1>End of Presentation</h1>
+            <h2>Questions?</h2>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            
+            if (n >= totalSlides) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = n;
+            }
+            
+            slides[currentSlide].classList.add('active');
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            
+            // Scroll to top of slide
+            slides[currentSlide].scrollTop = 0;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ' || event.key === 'PageDown') {
+                event.preventDefault();
+                if (currentSlide < totalSlides - 1) {
+                    changeSlide(1);
+                }
+            } else if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+                event.preventDefault();
+                if (currentSlide > 0) {
+                    changeSlide(-1);
+                }
+            } else if (event.key === 'Home') {
+                event.preventDefault();
+                showSlide(0);
+            } else if (event.key === 'End') {
+                event.preventDefault();
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

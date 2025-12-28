@@ -74,7 +74,7 @@ By the end of today, you will:
 
 ## Can You Find This File?
 
-📁 `Jones_v_Smith_final_FINAL_revised_2_actuallyfinal.docx`
+📁 `Hassan_v_Mohamed_final_FINAL_revised_2_actuallyfinal.docx`
 
 ---
 # **Common Problems**
@@ -156,7 +156,7 @@ YYYY-MM-DD_CaseType-ID_Document_Initials
 
 Metadata enables powerful search:
 - "Show me all urgent Family Cases"
-- "Find Judge Ahmed's December orders"
+- "Find Judge Ibrahim's December orders"
 - "Locate maintenance orders from 2025"
 
 ---
@@ -234,7 +234,7 @@ Metadata enables powerful search:
 
 **Data:** 
 - Column A: Case Numbers (FC-2025-001, FC-2025-002...)
-- Column B: Case Officers (Ahmed, Mariyam, Hussain...)
+- Column B: Case Officers (Aminath, Fathimath, Ibrahim, Mohamed, Aishath...)
 
 **Formula:**
 ```excel
